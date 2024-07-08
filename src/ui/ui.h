@@ -1,18 +1,16 @@
-#ifndef _T_REMOTE_UI_H
-#define _T_REMOTE_UI_H
+#pragma once
 
-#if defined __has_include
-  #if __has_include("lvgl.h")
-    #include "lvgl.h"
-  #elif __has_include("lvgl/lvgl.h")
-    #include "lvgl/lvgl.h"
-  #else
-    #include "lvgl.h"
-  #endif
-#else
-  #include "lvgl.h"
-#endif
+
+enum  blinds_button_t
+{
+    UP, DOWN, STOP
+};
+
+
+typedef void (*blinds_button_callback_t)(blinds_button_t  pressed_button, void * user_data);
+
+void create_blinds(const char * label_text, blinds_button_callback_t callback, void * user_data);
+
 
 void ui_init(void);
 
-#endif

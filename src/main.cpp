@@ -79,6 +79,11 @@ void my_touchpad_read(lv_indev_drv_t *indev_driver, lv_indev_data_t *data)
 //    lv_label_set_text(ui_Label1, buf);
 //}
 
+
+void btn_cb(blinds_button_t  pressed_button, void * user_data) {
+
+}
+
 void setup()
 {
 
@@ -128,6 +133,13 @@ void setup()
     ui_init();
 
     Serial.println("Setup done");
+
+    create_blinds("Rullardin Fönster", btn_cb, (void *)"one");
+    create_blinds("Rullardin Dörr", btn_cb, (void *)"one");
+  create_blinds("Markis ", btn_cb, (void *)"one");
+    create_blinds("Markis Dropp", btn_cb, (void *)"one");
+
+
 }
 
 void loop()
